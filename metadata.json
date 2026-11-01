@@ -1,0 +1,7 @@
+{
+  "name": "글로벌 머신비전 & 물리 보안 카메라 산업 분석 대시보드",
+  "description": "글로벌 머신비전 및 물리 보안 카메라 산업 심층 분석 대시보드 - 지능형 엣지 AI SoC, 차세대 Sony Pregius S 센서, 고속 전송 인터페이스, 실시간 트리거 지연 물리 시뮬레이터 및 NDAA/EU AI Act 규제 분석",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
