@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SENSOR_COMPARISONS, INTERFACE_SPECS, LENS_MOUNTS } from '../data/industryData';
+import { InterfaceMarketSharePieChart } from './InterfaceMarketSharePieChart';
 import { Cpu, Zap, Activity, Calculator, Check, ArrowRight } from 'lucide-react';
 
 export const HardwareTab: React.FC = () => {
@@ -161,6 +162,9 @@ export const HardwareTab: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* RECHARTS INTERFACE MARKET SHARE PIE CHART */}
+      <InterfaceMarketSharePieChart />
 
       {/* Interactive Bandwidth Calculator */}
       <div className="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">

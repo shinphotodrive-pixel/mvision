@@ -712,3 +712,108 @@ export const REGULATION_MILESTONES = [
     tag: 'Standard'
   }
 ];
+
+export interface MarketGrowthPoint {
+  year: string;
+  totalMarket: number; // 십억 달러 (B USD)
+  totalGrowthRate: number; // YoY 성장률 (%)
+  semiconductor: number; // 반도체 & 전자 (B USD)
+  semiGrowthRate: number; // 반도체 YoY (%)
+  evBattery: number; // 2차전지 & 배터리 (B USD)
+  batteryGrowthRate: number; // 2차전지 YoY (%)
+  roboticsAutomation: number; // 스마트 팩토리 & 로보틱스 (B USD)
+  roboticsGrowthRate: number; // 로보틱스 YoY (%)
+  medicalLifeScience: number; // 의료 & 바이오 비전 (B USD)
+  medicalGrowthRate: number; // 의료 바이오 YoY (%)
+}
+
+export const MARKET_GROWTH_DATA: MarketGrowthPoint[] = [
+  { year: '2020', totalMarket: 9.8, totalGrowthRate: 5.2, semiconductor: 3.2, semiGrowthRate: 6.1, evBattery: 1.1, batteryGrowthRate: 15.2, roboticsAutomation: 4.2, roboticsGrowthRate: 2.4, medicalLifeScience: 1.3, medicalGrowthRate: 4.8 },
+  { year: '2021', totalMarket: 10.9, totalGrowthRate: 11.2, semiconductor: 3.7, semiGrowthRate: 15.6, evBattery: 1.4, batteryGrowthRate: 27.3, roboticsAutomation: 4.4, roboticsGrowthRate: 4.8, medicalLifeScience: 1.4, medicalGrowthRate: 7.7 },
+  { year: '2022', totalMarket: 11.9, totalGrowthRate: 9.2, semiconductor: 4.2, semiGrowthRate: 13.5, evBattery: 1.8, batteryGrowthRate: 28.6, roboticsAutomation: 4.4, roboticsGrowthRate: 0.0, medicalLifeScience: 1.5, medicalGrowthRate: 7.1 },
+  { year: '2023', totalMarket: 12.8, totalGrowthRate: 7.6, semiconductor: 4.6, semiGrowthRate: 9.5, evBattery: 2.3, batteryGrowthRate: 27.8, roboticsAutomation: 4.3, roboticsGrowthRate: -2.3, medicalLifeScience: 1.6, medicalGrowthRate: 6.7 },
+  { year: '2024', totalMarket: 13.9, totalGrowthRate: 8.6, semiconductor: 5.1, semiGrowthRate: 10.9, evBattery: 2.9, batteryGrowthRate: 26.1, roboticsAutomation: 4.2, roboticsGrowthRate: -2.3, medicalLifeScience: 1.7, medicalGrowthRate: 6.3 },
+  { year: '2025', totalMarket: 15.2, totalGrowthRate: 9.4, semiconductor: 5.8, semiGrowthRate: 13.7, evBattery: 3.6, batteryGrowthRate: 24.1, roboticsAutomation: 4.0, roboticsGrowthRate: -4.8, medicalLifeScience: 1.8, medicalGrowthRate: 5.9 },
+  { year: '2026', totalMarket: 16.8, totalGrowthRate: 10.5, semiconductor: 6.7, semiGrowthRate: 15.5, evBattery: 4.5, batteryGrowthRate: 25.0, roboticsAutomation: 3.7, roboticsGrowthRate: -7.5, medicalLifeScience: 1.9, medicalGrowthRate: 5.6 },
+  { year: '2027(E)', totalMarket: 18.7, totalGrowthRate: 11.3, semiconductor: 7.8, semiGrowthRate: 16.4, evBattery: 5.5, batteryGrowthRate: 22.2, roboticsAutomation: 3.4, roboticsGrowthRate: -8.1, medicalLifeScience: 2.0, medicalGrowthRate: 5.3 },
+  { year: '2028(E)', totalMarket: 20.8, totalGrowthRate: 11.2, semiconductor: 9.0, semiGrowthRate: 15.4, evBattery: 6.6, batteryGrowthRate: 20.0, roboticsAutomation: 3.1, roboticsGrowthRate: -8.8, medicalLifeScience: 2.1, medicalGrowthRate: 5.0 },
+  { year: '2029(E)', totalMarket: 23.1, totalGrowthRate: 11.1, semiconductor: 10.3, semiGrowthRate: 14.4, evBattery: 7.8, batteryGrowthRate: 18.2, roboticsAutomation: 2.8, roboticsGrowthRate: -9.7, medicalLifeScience: 2.2, medicalGrowthRate: 4.8 },
+  { year: '2030(E)', totalMarket: 25.6, totalGrowthRate: 10.8, semiconductor: 11.7, semiGrowthRate: 13.6, evBattery: 9.0, batteryGrowthRate: 15.4, roboticsAutomation: 2.6, roboticsGrowthRate: -7.1, medicalLifeScience: 2.3, medicalGrowthRate: 4.5 },
+];
+
+export interface InterfaceMarketShareItem {
+  id: string;
+  name: string;
+  shortName: string;
+  color: string;
+  shares: {
+    '2020': number;
+    '2023': number;
+    '2026': number;
+    '2030E': number;
+  };
+  changeDelta: string;
+  isGrowing: boolean;
+  driverReason: string;
+  keySpecs: string;
+}
+
+export const INTERFACE_MARKET_SHARES: InterfaceMarketShareItem[] = [
+  {
+    id: 'gige',
+    name: 'GigE Vision (1G / 5G / 10G PoE)',
+    shortName: 'GigE Vision',
+    color: '#0d9488', // Teal
+    shares: { '2020': 48.0, '2023': 44.5, '2026': 41.0, '2030E': 36.0 },
+    changeDelta: '-7.0%p (1G 감축 / 10G 전환)',
+    isGrowing: false,
+    driverReason: '최대 100m 저비용 표준 CAT6 배선과 PoE 지원으로 다중 카메라 스마트 팩토리 공정 표준 유지. 저속 1Gbps에서 5G/10G 고속 NIC로 세대 교체 중.',
+    keySpecs: '최대 10Gbps / 100m / 표준 NIC (그래버 불필요)'
+  },
+  {
+    id: 'cxp',
+    name: 'CoaXPress (CXP-6 / CXP-12 / CXP-oF)',
+    shortName: 'CoaXPress',
+    color: '#d97706', // Amber
+    shares: { '2020': 14.0, '2023': 23.5, '2026': 31.5, '2030E': 38.5 },
+    changeDelta: '+17.5%p (고속 검사 급성장)',
+    isGrowing: true,
+    driverReason: '반도체 웨이퍼 HBM 3D 패키징, OLED 디스플레이, 2차전지 고속 검사에서 나노초 단위 동기화 및 50Gbps 극한 대역폭 수요 폭증.',
+    keySpecs: '채널당 12.5Gbps (Quad 50Gbps) / 전용 PCIe 프레임 그래버 필수'
+  },
+  {
+    id: 'usb3',
+    name: 'USB3 Vision (USB 3.0 / 3.2 Type-C)',
+    shortName: 'USB3 Vision',
+    color: '#3b82f6', // Blue
+    shares: { '2020': 23.0, '2023': 18.5, '2026': 14.5, '2030E': 11.5 },
+    changeDelta: '-8.5%p (거리 제약으로 축소)',
+    isGrowing: false,
+    driverReason: '별도 하드웨어 없이 PC 직결 플러그 앤 플레이가 가능하여 실험실, 탁상형 의료 현미경에 특화. 3~5m 케이블 길이 한계로 대형 공정 도입 둔화.',
+    keySpecs: '5~10Gbps / 최대 3~5m (패시브) / 버스 파워'
+  },
+  {
+    id: 'embedded',
+    name: 'MIPI CSI-2 & GMSL2 / FPD-Link (임베디드)',
+    shortName: 'MIPI / GMSL2',
+    color: '#8b5cf6', // Purple
+    shares: { '2020': 4.0, '2023': 6.5, '2026': 9.5, '2030E': 12.5 },
+    changeDelta: '+5.5%p (AMR 로봇/드론 확산)',
+    isGrowing: true,
+    driverReason: 'NVIDIA Jetson, NXP 등 자율주행 물류 로봇(AMR), AGV, 농업 드론용 초소형 보드 레벨 카메라 및 최대 15m 동축 차재 인터페이스 급증.',
+    keySpecs: '최대 6Gbps / 동축 15m (GMSL2) / 보드 직결'
+  },
+  {
+    id: 'cameralink',
+    name: 'Camera Link & 기타 레거시 (Analog/LVDS)',
+    shortName: 'Camera Link (레거시)',
+    color: '#94a3b8', // Slate
+    shares: { '2020': 11.0, '2023': 7.0, '2026': 3.5, '2030E': 1.5 },
+    changeDelta: '-7.5%p (CXP로 완전 대체)',
+    isGrowing: false,
+    driverReason: '두껍고 비싼 케이블 및 신호 거리 한계로 인해 신규 설비 투자에서 완전히 배제되고 CoaXPress 2.0으로 100% 교체되는 추세.',
+    keySpecs: '최대 6.8Gbps (Deca) / 10m / 두꺼운 전용 케이블'
+  }
+];
+
+

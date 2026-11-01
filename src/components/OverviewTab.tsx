@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MetricCards } from './MetricCards';
+import { MarketGrowthChart } from './MarketGrowthChart';
 import { CONVERGENCE_METRICS } from '../data/industryData';
 import { Cpu, ShieldCheck, Zap, ArrowRight, Layers, HelpCircle } from 'lucide-react';
 
@@ -39,6 +40,9 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ onNavigateTab }) => {
     <div className="space-y-6">
       {/* 1. KEY INTEL METRIC CARDS (Requested Component) */}
       <MetricCards onNavigateToTab={onNavigateTab} />
+
+      {/* 2. RECHARTS MULTI-LINE ANNUAL GROWTH RATE & MARKET SIZE CHART */}
+      <MarketGrowthChart />
 
       {/* 2. Convergence Narrative Intro */}
       <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
