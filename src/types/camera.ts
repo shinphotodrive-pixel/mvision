@@ -46,7 +46,7 @@ export interface InterfaceSpec {
   bandwidthGbps: number;
   maxDistanceMeters: number;
   latencyJitter: string;
-  frameGrabber: '필수 (PCIe)' | '불필요 (NIC / Host)' | '선택';
+  frameGrabber: string;
   cableType: string;
   powerDelivery: string;
   typicalApplication: string;
